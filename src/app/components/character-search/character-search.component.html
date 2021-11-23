@@ -1,0 +1,57 @@
+<h1>Búscador de personajes</h1>
+
+<form #searchChar="ngForm">
+
+  <div class="alone">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre: </mat-label>
+      <input matInput required name="name" [(ngModel)]="charname" #name="ngModel" value="Nombre">
+    </mat-form-field>
+
+    <button type="button" (click)="searchByName(name)" [disabled]="name.invalid && (name.dirty || name.touched)"
+      mat-raised-button color="primary">
+      Buscar por nombre
+    </button>
+
+    <label *ngIf="name.invalid && (name.dirty || name.touched)" class="error">!Debe añadir un nombre¡</label>
+
+    <br>
+    
+    <label *ngIf="noName !== ''" class="error">{{ noName }}</label>
+
+  </div>
+
+  <div class="alone">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Id: </mat-label>
+      <input matInput type="text" required name="id" [(ngModel)]="charid" #id="ngModel" value="Id">
+    </mat-form-field>
+
+    <button type="button" (click)="searchById(id)" [disabled]="id.invalid && (id.dirty || id.touched)" mat-raised-button
+      color="primary">
+      Buscar por Id
+    </button>
+
+    <label *ngIf="id.invalid && (id.dirty || id.touched)" class="error">!Debe añadir un Id¡</label>
+    <br>
+    <label *ngIf="noId !== ''" class="error">{{ noId }}</label>
+
+  </div>
+
+
+</form>
+
+<ul>
+  <li *ngFor="let character of charactersSearch">
+    <a routerLink="/detail/{{ character.id }}">
+      <div class="card">
+        <div class="cardname">
+          <p>{{ character.name }}</p>
+        </div>
+        <figure><img [src]="character.image" /></figure>
+      </div>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,15 @@
+<!-- Mostrando todos las imagenes en un grid Material. -->
+
+<mat-grid-list cols="4">
+  <mat-grid-tile *ngFor="let character of characters">
+    <a routerLink="/detail/{{ character.id }}">
+      <div class="card">
+        <div class="cardname">
+          <p>{{ character.name }}</p>
+        </div>
+        <figure><img [src]="character.image" /></figure>
+      </div>
+    </a>
+  </mat-grid-tile>
+
+</mat-grid-list>

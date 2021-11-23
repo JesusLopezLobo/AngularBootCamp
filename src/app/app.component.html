@@ -1,0 +1,39 @@
+<!-- ==== EJERCICIOS ==== -->
+
+<!-- <app-all-characters></app-all-characters> -->
+
+<!-- Ejercicio 1 y 2 Componente Search-->
+
+<!-- <app-character-search labelButton="Buscar"></app-character-search> -->
+
+<!-- Ejercicio 3 y 4 Componente Search-->
+
+<!-- <app-search labelButton="Enviar"></app-search> -->
+<!-- <app-search labelButton="Enviar" (searchEvent)="search($event)"></app-search>
+<p>{{msgEventSearch}}</p> -->
+
+<!-- <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
+
+<!-- ==== FIN EJERCICIOS ==== -->
+
+<mat-toolbar color="primary"> Inicio</mat-toolbar>
+<mat-nav-list>
+	<mat-list-item routerLink="home" [routerLinkActive]="['active']">
+		<mat-icon matListIcon>home</mat-icon>
+		<a matLine>Home</a>
+	</mat-list-item>
+
+	<mat-list-item routerLink="listado" [routerLinkActive]="['active']">
+		<mat-icon matListIcon>list</mat-icon>
+		<a matLine>Listado</a>
+	</mat-list-item>
+
+	<mat-list-item routerLink="buscar" [routerLinkActive]="['active']">
+		<mat-icon matListIcon>search</mat-icon>
+		<a matLine>Busqueda</a>
+	</mat-list-item>
+
+</mat-nav-list>
+
+
+<router-outlet></router-outlet>
